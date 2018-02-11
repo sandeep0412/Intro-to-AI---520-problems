@@ -1,30 +1,33 @@
 package com.ai.problem1;
 
-public class BinaryHeap<T extends Comparable<T>> {
+public class PriorityQueue<T extends Comparable<T>> {
 
-	private static int DEFAULT_CAPACITY = 100;
+	private static int DEFAULT_CAPACITY = 10;
 
 	private T[] t;
 
 	private static int capacity = 0;
 
-	public BinaryHeap() {
+	private int size = 0;
+
+	public PriorityQueue() {
 		this(DEFAULT_CAPACITY);
 	}
 
 	@SuppressWarnings("unchecked")
-	public BinaryHeap(int capacity) {
+	public PriorityQueue(int capacity) {
 		t = (T[]) new Comparable[capacity + 1];
 		capacity = 0;
 	}
 
 	@SuppressWarnings("unchecked")
-	public BinaryHeap(T[] objects) {
+	public PriorityQueue(T[] objects) {
 		capacity = objects.length;
 		t = (T[]) new Comparable[capacity * 2 + 1];
 		int i = 1;
 		for (T object : objects) {
 			t[i++] = object;
+			size++;
 		}
 		buildHeap();
 	}
@@ -40,13 +43,13 @@ public class BinaryHeap<T extends Comparable<T>> {
 		int left = 2 * i;
 		int right = 2 * i + 1;
 
-		if (left <= capacity && t[left].compareTo(t[i]) > 0) {
+		if (left <= capacity && t[left].compareTo(t[i]) < 0) {
 			index = left;
 		} else {
 			index = i;
 		}
 
-		if (right <= capacity && t[right].compareTo(t[index]) > 0) {
+		if (right <= capacity && t[right].compareTo(t[index]) < 0) {
 			index = right;
 		}
 
@@ -72,6 +75,7 @@ public class BinaryHeap<T extends Comparable<T>> {
 		for (int i = 0; i < old.length; i++) {
 			t[i] = old[i];
 		}
+		size++;
 	}
 
 	public T poll() {
@@ -90,6 +94,14 @@ public class BinaryHeap<T extends Comparable<T>> {
 		t[1] = t[capacity--];
 		heapify(1);
 		return max;
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
 	}
 
 }
