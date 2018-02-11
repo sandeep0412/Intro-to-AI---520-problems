@@ -1,11 +1,11 @@
 package com.ai.problem1;
 
-public class Maze {
+public class Maze<T> {
 
-	int maze[][];
+	private int maze[][];
 
-	public void initialize() {
-		maze = new int[101][101];
+	public void preComputeHeuristic(T[][] array, int start_index, int dest_index) {
+
 	}
 
 }

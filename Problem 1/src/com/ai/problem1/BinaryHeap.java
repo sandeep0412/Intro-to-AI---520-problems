@@ -74,19 +74,19 @@ public class BinaryHeap<T extends Comparable<T>> {
 		}
 	}
 
-	public T findMax() {
+	public T poll() {
 		if (capacity == 0) {
 			return null;
 		}
 		return t[1];
 	}
 
-	public T deleteMax() {
+	public T remove() {
 		if (capacity == 0) {
 			return null;
 		}
 
-		T max = findMax();
+		T max = poll();
 		t[1] = t[capacity--];
 		heapify(1);
 		return max;
