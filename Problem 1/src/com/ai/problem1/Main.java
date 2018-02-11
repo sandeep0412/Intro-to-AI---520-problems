@@ -1,3 +1,4 @@
+package com.ai.problem1;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
