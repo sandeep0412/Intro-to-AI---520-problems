@@ -1,7 +1,5 @@
 package com.ai.problem1;
 
-import javax.management.RuntimeErrorException;
-
 public class PathFinder {
 
 	private static PriorityQueue<Grid> open;
