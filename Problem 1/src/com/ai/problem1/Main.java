@@ -7,6 +7,7 @@ public class Main {
 
 	public static void main(String... args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		Maze maze = new Maze();
+		maze.configureFrame(maze, 2020);
 	}
 }

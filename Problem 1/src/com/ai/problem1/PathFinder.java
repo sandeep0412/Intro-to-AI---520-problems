@@ -6,11 +6,14 @@ public class PathFinder {
 
 	private static PriorityQueue<Grid> closed;
 
+	private static PriorityQueue<Grid> path;
+
 	private static int cost, grid_row_limit, grid_col_limit;
 
 	static {
 		open = new PriorityQueue<>();
 		closed = new PriorityQueue<>();
+		path = new PriorityQueue<>();
 	}
 
 	public void preComputeHeuristic(Grid[][] array, int row, int col) {
@@ -30,8 +33,8 @@ public class PathFinder {
 	public void computePath(Grid[][] array, Grid current, Grid target, int movementCost) {
 
 		Grid left, right, up, down;
-		
-		if(current.equals(target)){
+
+		if (current.equals(target)) {
 			return;
 		}
 
