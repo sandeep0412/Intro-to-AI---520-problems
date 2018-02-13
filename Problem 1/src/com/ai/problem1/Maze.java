@@ -7,6 +7,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class Maze extends JPanel {
 
@@ -43,9 +44,12 @@ public class Maze extends JPanel {
 	public JFrame configureFrame(JPanel panel, int size) {
 		JFrame f = new JFrame();
 		this.size = size;
+		JScrollPane pane = new JScrollPane(panel);
+		pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		f.setTitle("Maze Runner");
+		f.getContentPane().add(pane);
 		f.setPreferredSize(new Dimension(size, size));
-		f.setContentPane(panel);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setLocationRelativeTo(null);
 		f.pack();
 		f.setVisible(true);
