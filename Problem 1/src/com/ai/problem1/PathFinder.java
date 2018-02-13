@@ -1,19 +1,22 @@
 package com.ai.problem1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PathFinder {
 
 	private static PriorityQueue<Grid> open;
 
 	private static PriorityQueue<Grid> closed;
 
-	private static PriorityQueue<Grid> path;
+	private static List<Grid> path;
 
 	private static int cost, grid_row_limit, grid_col_limit;
 
 	static {
 		open = new PriorityQueue<>();
 		closed = new PriorityQueue<>();
-		path = new PriorityQueue<>();
+		path = new ArrayList<>();
 	}
 
 	public void preComputeHeuristic(Grid[][] array, int row, int col) {

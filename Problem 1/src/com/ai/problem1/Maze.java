@@ -14,9 +14,6 @@ public class Maze extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int size;
 
-	public Maze() {
-	}
-
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
